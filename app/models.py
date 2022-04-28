@@ -27,7 +27,7 @@ class Item(db.Model):
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250))
-    users_items = db.relationship('UsersItem', backref='user')
+    users_items = db.relationship('UsersItem', backref='user', cascade='all,delete')
 
 
 class UsersItem(db.Model):
