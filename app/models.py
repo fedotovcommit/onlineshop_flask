@@ -18,6 +18,7 @@ class Item(db.Model):
     price = db.Column(db.Float(9, 2))
     created = db.Column(db.DateTime, default=datetime.utcnow)
     brand_id = db.Column(db.Integer, db.ForeignKey('brand.id'))
+    users_items = db.relationship('UsersItem', backref='item')
 
     def __repr__(self):
         return self.title
